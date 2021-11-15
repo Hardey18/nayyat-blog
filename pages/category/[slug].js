@@ -7,7 +7,6 @@ import { PostCard, Categories, Loader } from '../../components';
 const CategoryPost = ({ posts }) => {
   const [postCategory, setPostCategory] = useState("");
   let reversedData = [...posts].reverse();
-  console.log("Data", reversedData);
   useEffect(() => {
     if (reversedData[0].node.categories.length > 1) {
       setPostCategory(reversedData[0].node.categories[reversedData[0].node.categories.length - 1].name)
