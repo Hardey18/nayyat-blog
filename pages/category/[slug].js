@@ -6,11 +6,13 @@ import { PostCard, Categories, Loader } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const [postCategory, setPostCategory] = useState("");
+  let reversedData = [...posts].reverse();
+  console.log("Data", reversedData);
   useEffect(() => {
-    if (posts[0].node.categories.length > 1) {
-      setPostCategory(posts[0].node.categories[posts[0].node.categories.length - 1].name)
+    if (reversedData[0].node.categories.length > 1) {
+      setPostCategory(reversedData[0].node.categories[reversedData[0].node.categories.length - 1].name)
     } else {
-      setPostCategory(posts[0].node.categories[0].name)
+      setPostCategory(reversedData[0].node.categories[0].name)
     }
   })
   const router = useRouter();
@@ -25,7 +27,7 @@ const CategoryPost = ({ posts }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
         <div className="text-2xl text-white mb-8">{postCategory} posts</div>
-          {posts.map((post, index) => (
+          {reversedData.map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
         </div>
