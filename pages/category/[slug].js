@@ -5,19 +5,22 @@ import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Categories, Loader } from '../../components';
 
 const CategoryPost = ({ posts }) => {
-  let reversedData = [...posts].reverse();
+  const [postCategory, setPostCategory] = useState("");
+  useEffect(() => {
+    setPostCategory(posts[0].node.categories[0].name)
+  })
   const router = useRouter();
 
   if (router.isFallback) {
     return <Loader />;
   }
 
-
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
-          {reversedData.map((post, index) => (
+        <div className="text-2xl text-white mb-8">{postCategory} posts</div>
+          {posts.map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
         </div>
