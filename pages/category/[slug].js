@@ -6,6 +6,7 @@ import { PostCard, Categories, Loader } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const [postCategory, setPostCategory] = useState("");
+  let reversedData = [...posts].reverse();
   useEffect(() => {
     setPostCategory(posts[0].node.categories[0].name)
   })
@@ -20,7 +21,7 @@ const CategoryPost = ({ posts }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
         <div className="text-2xl text-white mb-8">{postCategory} posts</div>
-          {posts.map((post, index) => (
+          {reversedData.map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
         </div>
