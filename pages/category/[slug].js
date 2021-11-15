@@ -7,13 +7,18 @@ import { PostCard, Categories, Loader } from '../../components';
 const CategoryPost = ({ posts }) => {
   const [postCategory, setPostCategory] = useState("");
   useEffect(() => {
-    setPostCategory(posts[0].node.categories[0].name)
+    if (posts[0].node.categories.length > 1) {
+      setPostCategory(posts[0].node.categories[posts[0].node.categories.length - 1].name)
+    } else {
+      setPostCategory(posts[0].node.categories[0].name)
+    }
   })
   const router = useRouter();
 
   if (router.isFallback) {
     return <Loader />;
   }
+
 
   return (
     <div className="container mx-auto px-10 mb-8">
