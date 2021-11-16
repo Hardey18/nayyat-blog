@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { FeaturedPosts } from '../sections/index';
 import { PostCard, Categories, PostWidget } from '../components';
 import { getPosts } from '../services';
@@ -6,6 +7,11 @@ export default function Home({ posts }) {
   let reversedData = [...posts].reverse();
   return (
     <div className="container mx-auto px-4 mb-8">
+    <Head>
+      <title>Nayyat Blog</title>
+      <meta name="description" content="A blog about my thoughts" />
+      <link rel="manifest" href="/manifest.json" />
+    </Head>
       <FeaturedPosts />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">

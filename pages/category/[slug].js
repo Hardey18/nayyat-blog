@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -6,6 +7,7 @@ import { PostCard, Categories, Loader } from '../../components';
 
 const CategoryPost = ({ posts }) => {
   const [postCategory, setPostCategory] = useState("");
+  const reversedData = [...posts].reverse();
   useEffect(() => {
     if (posts[0].node.categories.length > 1) {
       setPostCategory(posts[0].node.categories[posts[0].node.categories.length - 1].name)
@@ -21,10 +23,15 @@ const CategoryPost = ({ posts }) => {
 
   return (
     <div className="container mx-auto px-4 mb-8">
+    <Head>
+      <title>Nayyat Blog</title>
+      <meta name="description" content="A blog about my thoughts" />
+      <link rel="manifest" href="/manifest.json" />
+    </Head>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="col-span-1 lg:col-span-8">
         <div className="font-bold text-white mb-8">{postCategory.toUpperCase()} POSTS</div>
-          {posts.map((post, index) => (
+          {reversedData.map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
         </div>

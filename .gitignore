@@ -32,4 +32,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Env File
 .env
+
+#PWA
+public/sw.js
+public/workbox-*.js

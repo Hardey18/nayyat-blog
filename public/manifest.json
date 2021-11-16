@@ -1,0 +1,45 @@
+{
+    "short_name": "Nayyat Blog",
+    "name": "Nayyat Blog",
+    "description": "A blog about my thoughts",
+    "icons": [
+        {
+            "src": "/icons/nayyat-36x36.png",
+            "type": "image/png",
+            "sizes": "36x36"
+        },
+        {
+            "src": "/icons/nayyat-48x48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/icons/nayyat-72x72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/icons/nayyat-96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/icons/nayyat-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icons/maskable-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcut": [],
+    "start_url": "/",
+    "id": "/",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "scoped": "/",
+    "theme_color": "#000000"
+}
